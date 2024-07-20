@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-config
+data:
+  config1.txt: |
+    This is the content of config1.
+  config2.txt: |
+    This is the content of config2.

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-canary
+  labels:
+    app: my-app
+    version: canary
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app
+      version: canary
+      type: httpd
+  template:
+    metadata:
+      labels:
+        app: my-app
+        version: canary
+        type: httpd
+    spec:
+      containers:
+      - name: httpd
+        image: httpd:latest
+        ports:
+        - containerPort: 80
